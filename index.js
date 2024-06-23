@@ -1,26 +1,46 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const productModel = require('./models/product.model.js');
+const productRoutes = require('./routes/product.route.js');
+const dotenv = require('dotenv');
+dotenv.config();
 
+// Middleware Config
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-app.get('/', (req, res) => {
+// Routes
+app.use('/api/products', productRoutes);
 
-    res.send('Homepage!');
+// app.get('/', (req, res) => {
 
-});
+//     res.send('Homepage!');
 
-app.post('/api/products', (req, res) => {
-    res.send("Data added");
-});
+// });
 
-mongoose.connect("mongodb+srv://aryan:mongodbatlas@apidb.wv9omfb.mongodb.net/Node-API?retryWrites=true&w=majority&appName=ApiDB")
+// // Getting all Products from DB.
+// app.get('/api/products',);
+
+// // Adding Products to DB
+// app.post('/api/products', );
+
+// // Getting individual Product by ID.
+// app.get('/api/products/:id', );
+
+// // Update individual Product by ID.
+// app.put('/api/products/:id', )
+
+// // Delete individual Product by ID.
+// app.delete('/api/products/:id', );
+
+mongoose.connect(process.env.MONGO_URL)
 .then(() => {
-    console.log("Connected to DB");
-    app.listen(4000, () => {
-        console.log('Server running on PORT 4000');
+    console.log("Connected to Database!");
+    app.listen(process.env.PORT, () => {
+        console.log(`Server running on PORT ${process.env.PORT}`);
     });
 })
 .catch(() => {
-    console.log("Connection Faileed.")
+    console.log("Connection Failed!")
 })
