@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const productModel = require('./models/product.model.js');
-const productRoutes = require('./routes/product.route.js');
+const petRoutes = require('./routes/pet.route.js');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -11,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // Routes
-app.use('/api/products', productRoutes);
+app.use('/api/pets', petRoutes);
 
 // app.get('/', (req, res) => {
 
@@ -34,11 +33,13 @@ app.use('/api/products', productRoutes);
 // // Delete individual Product by ID.
 // app.delete('/api/products/:id', );
 
+const port = process.env.PORT || 4000;
+
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("Connected to Database!");
-    app.listen(process.env.PORT, () => {
-        console.log(`Server running on PORT ${process.env.PORT}`);
+    app.listen(port, () => {
+        console.log(`Server running on PORT ${port}`);
     });
 })
 .catch(() => {
