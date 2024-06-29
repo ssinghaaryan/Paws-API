@@ -2,5 +2,5 @@
     "version": 2,
     "name": "paws-api",
     "builds": [{ "src": "index.js", "use": "@vercel/node" }],
-    "routes": [{ "src": "/(.*)", "dest": "/api" }]
+    "rewrites": [{ "src": "/(.*)", "dest": "/api" }]
 }
