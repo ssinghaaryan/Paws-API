@@ -1,5 +1,6 @@
 const petModel = require('../models/pet.model');
 
+// The apiName tag is used as reference for the order (in package.json)
 /**
  * @api {get} /api/pets Get all Pets
  * @apiName GetPets

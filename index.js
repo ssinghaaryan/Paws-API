@@ -33,6 +33,8 @@ app.use('/api/pets', petRoutes);
 // // Delete individual Product by ID.
 // app.delete('/api/products/:id', );
 
+app.use('/docs', express.static('./apidoc'));
+
 const port = process.env.PORT || 4000;
 
 mongoose.connect(process.env.MONGO_URL)
