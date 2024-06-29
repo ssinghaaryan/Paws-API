@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const petRoutes = require('./routes/pet.route.js');
 const dotenv = require('dotenv');
+const path = require('path');
 dotenv.config();
 
 // Middleware Config
@@ -33,7 +34,8 @@ app.use('/api/pets', petRoutes);
 // // Delete individual Product by ID.
 // app.delete('/api/products/:id', );
 
-app.use('/docs', express.static('apidoc'));
+// app.use('/docs', express.static('apidoc'));
+app.use('/docs', express.static(path.join(__dirname, 'apidoc')));
 
 const port = process.env.PORT || 4000;
 
