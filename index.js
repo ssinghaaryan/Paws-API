@@ -33,7 +33,7 @@ app.use('/api/pets', petRoutes);
 // // Delete individual Product by ID.
 // app.delete('/api/products/:id', );
 
-// app.use('/docs', express.static('./apidoc'));
+app.use('/docs', express.static('apidoc'));
 
 const port = process.env.PORT || 4000;
 
