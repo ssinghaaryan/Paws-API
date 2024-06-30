@@ -35,7 +35,7 @@ app.use('/api/pets', petRoutes);
 // app.delete('/api/products/:id', );
 
 // app.use('/docs', express.static('apidoc'));
-app.use('/docs', express.static(path.join(__dirname, 'apidoc')));
+app.use('/docs', express.static(path.join(__dirname, 'apidoc'))); // THIS!!
 
 const port = process.env.PORT || 4000;
 
