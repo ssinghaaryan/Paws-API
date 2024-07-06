@@ -2,13 +2,16 @@ const petModel = require('../models/pet.model');
 
 // The apiName tag is used as reference for the order (in package.json)
 /**
- * @api {get} /api/pets Get all Pets
+ * @api {get} api/pets Get all Pets
  * @apiName GetPets
  * @apiGroup Pets
  * 
  * @apiExample {curl} JSON Request:
- * curl http://localhost:4000/api/pets
+ * curl https://paws-api-app.vercel.app/api/pets \
+ *  -H 'Accept: application/json'
  * 
+ * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.
+ *   
  * @apiSuccess (Success: 200 OK) {Number} _id Pet ID
  * @apiSuccess (Success: 200 OK) {String} petName Pet Name
  * @apiSuccess (Success: 200 OK) {String} petType Pet Type [Dog/Cat]
@@ -51,14 +54,17 @@ const getPets = async (req, res) => {
 //--------
 
 /**
- * @api {get} /api/pets/:id Get Pet by ID
+ * @api {get} api/pets/:id Get Pet by ID
  * @apiName GetPet
  * @apiGroup Pets
  * 
  * @apiExample {curl} JSON Request:
- * curl http://localhost:4000/api/pets/{id}
+ * curl https://paws-api-app.vercel.app/api/pets/{id} \
+ *  -H 'Accept: application/json'
  * 
  * @apiParam (URL Parameter){Number} id Pet ID
+ * 
+ * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.   
  * 
  * @apiSuccess (Success: 200 OK) {Number} _id Pet ID
  * @apiSuccess (Success: 200 OK) {String} petName Pet Name
@@ -101,13 +107,13 @@ const getPetById = async (req, res) => {
 //--------
 
 /**
- * @api {post} /api/pets/ Add Pet
+ * @api {post} api/pets Add Pet
  * @apiName AddPet
  * @apiGroup Pets
  * 
  * @apiExample {curl} JSON Request:
  * curl -X POST \
- *  http://localhost:4000/api/pets \
+ *  https://paws-api-app.vercel.app/api/pets \
  *  -H 'Content-Type: application/json' \
  *  -H 'Accept: application/json' \
  *  -d '{
@@ -119,7 +125,8 @@ const getPetById = async (req, res) => {
  * }'
  * 
  * @apiHeader {String} Content-Type =application/json Sets the format of payload you are sending.
- * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.  
+ * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.
+ *   
  * @apiBody {String} petName Pet Name
  * @apiBody {String} petType Pet Type [Dog/Cat]
  * @apiBody {Number} age Pet Age
@@ -159,13 +166,13 @@ const addPet = async (req, res) => {
 //----------
 
 /**
- * @api {put} /api/pets/:id Update Pet
+ * @api {put} api/pets/:id Update Pet
  * @apiName UpdatePet
  * @apiGroup Pets
  * 
  * @apiExample {curl} JSON Request:
- * curl -X POST \
- *  http://localhost:4000/api/pets/{id} \
+ * curl -X PUT \
+ *  https://paws-api-app.vercel.app/api/pets/{id} \
  *  -H 'Content-Type: application/json' \
  *  -H 'Accept: application/json' \
  *  -d '{
@@ -180,6 +187,13 @@ const addPet = async (req, res) => {
  * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.
  *  
  * @apiParam (URL Parameter){Number} id Pet ID
+ * 
+ * @apiSuccess (Success: 200 OK) {Number} _id Pet ID
+ * @apiSuccess (Success: 200 OK) {String} petName Pet Name
+ * @apiSuccess (Success: 200 OK) {String} petType Pet Type [Dog/Cat]
+ * @apiSuccess (Success: 200 OK) {Number} age Pet Age
+ * @apiSuccess (Success: 200 OK) {Boolean} vacinationStatus Pet's Vacination Status
+ * @apiSuccess (Success: 200 OK) {Boolean} availabilityStatus Pet's Availability Status
  * 
  * @apiSuccessExample {json} Response:
  * {
@@ -223,15 +237,18 @@ const updatePet = async (req, res) => {
 //-----------
 
 /**
- * @api {delete} /api/pets/:id Delete Pet
+ * @api {delete} api/pets/:id Delete Pet
  * @apiName DeletePet
  * @apiGroup Pets
  * 
  * @apiExample {curl} JSON Request:
  * curl -X DELETE \
- *  http://localhost:4000/api/pets/{id}
+ *  https://paws-api-app.vercel.app/api/pets/{id} \
+ *  -H 'Accept: application/json' 
  * 
  * @apiParam (URL Parameter) {Number} id Pet ID
+ * 
+ * @apiHeader {String} Accept =application/json Sets what format the response body is returned in.
  * 
  * @apiSuccess (Success: 200 OK) {String} message Pet Deleted Successfully
  * 

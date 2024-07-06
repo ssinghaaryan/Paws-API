@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const petRoutes = require('./routes/pet.route.js');
 const dotenv = require('dotenv');
 const path = require('path');
+const inject = require('@vercel/analytics')
 dotenv.config();
 
 // Middleware Config
@@ -36,6 +37,8 @@ app.use('/api/pets', petRoutes);
 
 // app.use('/docs', express.static('apidoc'));
 app.use('/docs', express.static(path.join(__dirname, 'apidoc'))); // THIS!!
+
+inject();
 
 const port = process.env.PORT || 4000;
 
