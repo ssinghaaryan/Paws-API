@@ -5,6 +5,7 @@ const petRoutes = require('./routes/pet.route.js');
 const dotenv = require('dotenv');
 const path = require('path');
 const inject = require('@vercel/analytics')
+// import { inject } from 'vercel/analytics';
 dotenv.config();
 
 // Middleware Config
@@ -38,10 +39,8 @@ app.use('/api/pets', petRoutes);
 // app.use('/docs', express.static('apidoc'));
 app.use('/docs', express.static(path.join(__dirname, 'apidoc'))); // THIS!!
 
-inject();
-
 const port = process.env.PORT || 4000;
-
+inject;
 mongoose.connect(process.env.MONGO_URL)
 .then(() => {
     console.log("Connected to Database!");
