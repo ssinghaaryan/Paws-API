@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const petRoutes = require('./routes/pet.route.js');
 const dotenv = require('dotenv');
 const path = require('path');
-const { inject } = require('@vercel/analytics')
+const { inject } = require('@vercel/analytics');
 // import { inject } from 'vercel/analytics';
 dotenv.config();
 

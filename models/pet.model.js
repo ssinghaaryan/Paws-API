@@ -14,14 +14,21 @@ const PetSchema = mongoose.Schema(
             required: [true, "Pet Type required!"],
         },
 
+        // username: {
+        //     type: String,
+        //     required: [true, "Pet username required!"]
+        // },
+
         age: {
             type: Number,
             required: [true, "Pet Age required!"],
         },
+
         vacinationStatus: {
             type: Boolean,
             default: false,
         },
+
         availabilityStatus: {
             type: Boolean,
             default: true,
@@ -31,7 +38,7 @@ const PetSchema = mongoose.Schema(
     
 )
 
-// The Product model that would be added to the DB and would be automatically updated to "Products".
-const Pet = mongoose.model("Pet", PetSchema);
+// The Product model that would be added to the DB and would be automatically updated to "Pets".
+const Pet = mongoose.model.Pet || mongoose.model("Pet", PetSchema);
 
 module.exports = Pet;

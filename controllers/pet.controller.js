@@ -93,10 +93,22 @@ const getPets = async (req, res) => {
 */
 
 // Getting individual Product by ID
-const getPetById = async (req, res) => {
+// const getPetById = async (req, res) => {
+//     try {
+//         const { id } = req.params; // id variable needs to be same as the id parameter.
+//         const pet = await petModel.findById(id);
+//         // res.message("")
+//         res.status(200).json(pet);
+//     } catch (error) {
+//         res.status(404).json({message: "No Pet found with the specified ID."});
+//     }
+// };
+
+const getPetByName = async (req, res) => {
     try {
-        const { id } = req.params; // id variable needs to be same as the id parameter.
-        const pet = await petModel.findById(id);
+        // const { name } = req.params; // id variable needs to be same as the id parameter.
+        const { name } = req.params['petName'];
+        const pet = await petModel.find(name);
         // res.message("")
         res.status(200).json(pet);
     } catch (error) {
@@ -230,7 +242,7 @@ const updatePet = async (req, res) => {
         // res.status(200).json({status: "Pet details Updated", updatedPet});
 
     } catch (error) {
-        res.status(500).json({message: "Pet not found"});
+        res.status(404).json({message: "Pet not found"});
     }
 };
 
@@ -254,7 +266,7 @@ const updatePet = async (req, res) => {
  * 
  * @apiSuccessExample {json} Response:
  * {
- *  "message": "Pet Deleted confirmation"
+ *  "message": "Pet Deleted Successfully"
  * }
 */
 
@@ -278,7 +290,8 @@ const deletePet = async (req, res) => {
 
 module.exports = {
     getPets,
-    getPetById,
+    // getPetById,
+    getPetByName,
     addPet,
     updatePet,
     deletePet,
