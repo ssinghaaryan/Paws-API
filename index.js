@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const { inject } = require('@vercel/analytics');
 // import { inject } from 'vercel/analytics';
+
 dotenv.config();
 
 // Middleware Config
@@ -51,3 +52,5 @@ mongoose.connect(process.env.MONGO_URL)
 .catch(() => {
     console.log("Connection Failed!")
 })
+
+module.exports = app;
