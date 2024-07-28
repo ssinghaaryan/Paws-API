@@ -39,6 +39,6 @@ const PetSchema = mongoose.Schema(
 )
 
 // The Product model that would be added to the DB and would be automatically updated to "Pets".
-const Pet = mongoose.model.Pet || mongoose.model("Pet", PetSchema);
+const Pet = mongoose.model("Pet", PetSchema);
 
 module.exports = Pet;
