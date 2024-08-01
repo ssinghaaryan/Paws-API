@@ -3,7 +3,7 @@ const petModel = require('../models/pet.model');
 // The apiName tag is used as reference for the order (in package.json)
 /**
  * @api {get} api/pets Get all Pets
- * @apiVersion 1.1.0
+ * @apiVersion 1.0.0
  * @apiName GetPets
  * @apiGroup Pets
  * 
@@ -57,7 +57,7 @@ const getPets = async (req, res) => {
 
 /**
  * @api {get} api/pets/:uid Get Pet by UID
- * @apiVersion 1.1.0
+ * @apiVersion 1.0.0
  * @apiName GetPet
  * @apiGroup Pets
  * 
@@ -164,7 +164,7 @@ const getPetByUID = async (req, res) => {
 
 /**
  * @api {post} api/pets Add Pet
- * @apiVersion 1.1.0
+ * @apiVersion 1.0.0
  * @apiName AddPet
  * @apiGroup Pets
  * 
@@ -228,7 +228,7 @@ const addPet = async (req, res) => {
 
 /**
  * @api {put} api/pets/:uid Update Pet by UID
- * @apiVersion 1.1.0
+ * @apiVersion 1.0.0
  * @apiName UpdatePet
  * @apiGroup Pets
  * 
@@ -359,7 +359,7 @@ const updatePetByUID = async (req, res) => {
 
 /**
  * @api {delete} api/pets/:uid Delete Pet by UID
- * @apiVersion 1.1.0
+ * @apiVersion 1.0.0
  * @apiName DeletePet
  * @apiGroup Pets
  * 

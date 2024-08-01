@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const PetSchema = mongoose.Schema(
 
-    // Pet Adoption Schema
+    // Pet Schema
     {
         petName: {
             type: String,
@@ -14,10 +14,11 @@ const PetSchema = mongoose.Schema(
             required: [true, "Pet Type required!"],
         },
 
-        // username: {
-        //     type: String,
-        //     required: [true, "Pet username required!"]
-        // },
+        petUID: {
+            type: String,
+            required: [true, "Pet UID required!"],
+            unique: true,
+        },
 
         age: {
             type: Number,
